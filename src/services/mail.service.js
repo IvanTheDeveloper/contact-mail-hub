@@ -23,13 +23,13 @@ async function sendEmail(recipient, subject, message, sender = "default") {
     let transporter = nodemailer.createTransport({
       service: process.env.MAIL_SERVICE,
       auth: {
-        user: process.env.MAIL_ADDRESS,
-        pass: process.env.MAIL_PASSWORD,
+        user: process.env.SENDER_MAIL_ADDRESS,
+        pass: process.env.SENDER_MAIL_PASSWORD,
       },
     });
 
     let mailOptions = {
-      from: process.env.MAIL_ADDRESS,
+      from: process.env.SENDER_MAIL_ADDRESS,
       to: recipient,
       subject: subject,
       html: htmlTemplate,
@@ -71,7 +71,7 @@ async function sendMailjet(recipient, subject, message, sender = "default") {
     );
 
     let mailOptions = {
-      from: process.env.MAIL_ADDRESS,
+      from: process.env.SENDER_MAIL_ADDRESS,
       to: recipient,
       subject: subject,
       html: htmlTemplate,
