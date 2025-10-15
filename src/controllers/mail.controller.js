@@ -29,9 +29,9 @@ async function mailjet(req, res, next) {
 async function test(req, res, next) {
   try {
     const info = await service.sendMailjet(
-      env.MAIL_ADDRESS,
-      "test email",
-      "lorem ipsum"
+      process.env.SENDER_MAIL_ADDRESS,
+      "Test email",
+      "Lorem ipsum dolor sit amet"
     );
     console.log("Email sent successfully: ", info);
     res.status(200).json({ message: "Email sent successfully", info });
