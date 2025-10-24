@@ -29,7 +29,7 @@ async function mailjet(req, res, next) {
 async function test(req, res, next) {
   try {
     const info = await service.sendMailjet(
-      process.env.SENDER_MAIL_ADDRESS,
+      process.env.RECIPIENT_MAIL_ADDRESS,
       "Test email",
       "Lorem ipsum dolor sit amet"
     );
